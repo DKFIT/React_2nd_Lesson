@@ -1,6 +1,10 @@
 import { useState } from "react"
 import FormForTask from "./FormForTask"
 import TableForTasks from "./TableForTasks"
+// import Container from 'react-bootstrap/Container';
+// import Nav from 'react-bootstrap/Nav';
+// import Navbar from 'react-bootstrap/Navbar';
+// import NavDropdown from 'react-bootstrap/NavDropdown';
 
 const ToDoMain = () => {
     //state turi buti virusje
@@ -11,7 +15,7 @@ const ToDoMain = () => {
     const [tasks, setTasks] = useState([
         {
             id: 1,
-            text : 'clean your room',
+            text : 'Clean your room',
             isCompleted: false
         },
         {
@@ -21,18 +25,26 @@ const ToDoMain = () => {
         },
         {
             id: 3,
-            text : 'make some food',
+            text : 'Make some food',
             isCompleted: false
         },
     ])
-    console.log(tasks)
+    console.log(tasks, "Tevinis")
+    const addToDoNewTask = (text) =>{
+
+        //Turiu iskviesti setTask metoda
+        //turiu prideti nauja uzduoti i esamu uzduociu sarasa
+const temVar = [...tasks, {text, isCompleted:false}]
+setTasks(temVar)
+    }
   return (
     <div>
         <TableForTasks list={tasks}/>
-        <FormForTask/>
-
+        <FormForTask addToDoNewTask ={addToDoNewTask}/>
     </div>
   )
 }
+
+
 
 export default ToDoMain
